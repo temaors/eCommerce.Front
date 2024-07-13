@@ -1,0 +1,36 @@
+.product-action-btn{
+    background-color: #b7ffdd;
+    border-radius: 15px;
+    border: none;
+    margin: 7px;
+    width: 100%;
+}
+
+.product-actions-group {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #0b9600;
+}
+
+.product-action-btn:hover{
+    background-color: #85EB6A;
+}
+
+.manage-products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.manage-add-product-btn {
+    background-color: #0b9600;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+}

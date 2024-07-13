@@ -1,0 +1,17 @@
+.monitor-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 40%;
+    border: 1px solid #ddd;
+}
+
+.monitor-th, .monitor-td {
+    text-align: left;
+    padding: 8px;
+}
+
+.monitor-tr:nth-child(even){background-color: #f2f2f2}
+
+.table-container{
+    overflow-x: auto;
+}

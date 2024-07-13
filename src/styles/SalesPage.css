@@ -1,0 +1,42 @@
+.sales-header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+.sales-h1 {
+    margin: 0;
+}
+
+.sales-main {
+    padding: 20px;
+}
+
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.sales-th, sales-td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.sales-th {
+    background-color: #f2f2f2;
+}
+
+.key-metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.key-metric {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    flex-basis: 25%;
+}
