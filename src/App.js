@@ -1,22 +1,23 @@
 import './App.css';
+import './styles/header.css'
+import './styles/productsList.css'
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { ProductListPage } from "./Pages/ProductListPage"
 import { ProductInfoPage } from "./Pages/ProductInfoPage"
-import './styles/header.css'
-import './styles/productsList.css'
-import {LoginPage} from "./Pages/LoginPage";
-import {MonitoringOfLogisticsCostsPage} from "./Pages/MonitoringOfLogisticsCostsPage";
-import {OrderMonitoringPage} from "./Pages/OrderMonitoringPage";
-import {PersonalAccountPage} from "./Pages/PersonalAccountPage";
-import {RegisterSellerPage} from "./Pages/RegisterSellerPage";
-import {RegisterPage} from "./Pages/RegisterPage";
-import {CartPage} from "./Pages/CartPage";
-import {SellerPage} from "./Pages/SellerPage";
-import {ManageProductsPage} from "./Pages/ManageProductsPage";
-import {AddChangeProductPage} from "./Pages/AddChangeProductpage";
-import {ProfilePage} from "./Pages/PersonalAccount/ProfilePage";
-import {FavouritesPage} from "./Pages/PersonalAccount/FavouritesPage";
-import {SalesPage} from "./Pages/SalesPage";
+import { LoginPage } from "./Pages/LoginPage";
+import { MonitoringOfLogisticsCostsPage } from "./Pages/MonitoringOfLogisticsCostsPage";
+import { OrderMonitoringPage } from "./Pages/OrderMonitoringPage";
+import { PersonalAccountPage } from "./Pages/PersonalAccountPage";
+import { RegisterSellerPage } from "./Pages/RegisterSellerPage";
+import { RegisterPage } from "./Pages/RegisterPage";
+import { CartPage } from "./Pages/CartPage";
+import { SellerPage } from "./Pages/SellerPage";
+import { ManageProductsPage } from "./Pages/ManageProductsPage";
+import { AddChangeProductPage } from "./Pages/AddChangeProductpage";
+import { ProfilePage } from "./Pages/PersonalAccount/ProfilePage";
+import { FavouritesPage } from "./Pages/PersonalAccount/FavouritesPage";
+import { SalesPage } from "./Pages/SalesPage";
+
 function App() {
 
   return (
