@@ -6,50 +6,42 @@ import {updateCartId, updateUserFav, updateUserId, updateSellerId, updateUserTyp
 import { useSelector } from 'react-redux';
 import {useNavigate} from "react-router-dom";
 
+
 const fetchLogging = async (email, password) => {
     const apiCredentials = {
         Email: email,
         Password: password,
         repeatedPassword: password
     };
-    console.log("credentials")
-    console.log(apiCredentials)
-    try{
-        const response = await Axios.post(`https://localhost:7217/sign_in`, apiCredentials, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        console.log("sign_in")
-        console.log(response)
-        if (response.status === 200) {
-            console.log('API credentials sent successfully!');
-            updateUserId(response.data.id)
-            const cartIdResponse = await Axios.get(`https://localhost:7217/cart/getId?userId=${response.data.id}`)
-            console.log(cartIdResponse.data.id)
-            updateCartId(cartIdResponse.data.id)
-            const userFavResponse = await Axios.get(`https://localhost:7217/user_favourites?userId=${response.data.id}`)
-            updateUserFav(userFavResponse.data.id)
-            const isUserSellerResponse = await Axios.get(`https://localhost:7217/seller/is_seller?userId=${response.data.id}`)
-            console.log(isUserSellerResponse.data)
-            if(isUserSellerResponse.data !== 0){
 
-                updateSellerId(isUserSellerResponse.data)
-                updateUserType(1)
-            }
-        } else {
-            console.error('Error sending API credentials:', response.status);
+    const response = await Axios.post(`https://localhost:7217/sign_in`, apiCredentials, {
+        headers: {
+            'Content-Type': 'application/json'
         }
-    } catch (error) {
-        console.error('Error sending API credentials:', error);
-    }
+    });
 
-    //return;
+    if (response.status === 200) {
+        console.log('API credentials sent successfully!');
+        updateUserId(response.data.id)
+        const cartIdResponse = await Axios.get(`https://localhost:7217/cart/getId?userId=${response.data.id}`)
+        updateCartId(cartIdResponse.data.id)
+        const userFavResponse = await Axios.get(`https://localhost:7217/user_favourites?userId=${response.data.id}`)
+        updateUserFav(userFavResponse.data.id)
+        const isUserSellerResponse = await Axios.get(`https://localhost:7217/seller/is_seller?userId=${response.data.id}`)
+        if(isUserSellerResponse.data !== 0){
+
+            updateSellerId(isUserSellerResponse.data)
+            updateUserType(1)
+        }
+    } else {
+        console.error('Error result:', response.status);
+    }
 };
 
 export const LoginPage = () =>{
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [loginError, setloginError] = React.useState("");
     const userId = useSelector(state => state.userId);
     const navigate = useNavigate();
 
@@ -57,12 +49,10 @@ export const LoginPage = () =>{
         event.preventDefault();
         try {
             const data = await fetchLogging(email, password);
-            console.log("Fetched data:", data);
-            console.log(userId)
             navigate('/products')
         } catch (error) {
-            console.error("Error during login:", error);
-            // Handle the error, such as displaying an error message to the user
+            console.log("Error during login:", error);
+            setloginError(error)
         }
     };
 
@@ -75,6 +65,16 @@ export const LoginPage = () =>{
             <div className="login-page-container">
                 <div className="login-container">
                     <h1>Вход</h1>
+                    {loginError != "" ? (
+                            <div className="textfield">
+                                <p class="failed-label">{loginError}</p>
+                            </div>
+                        ) : 
+                        (
+                            <div className="textfield">
+                                <p class="non-failed-label">{loginError}</p>
+                            </div>
+                        )}
                     <form action="#" className="form-login">
                         <div className="textfield">
                             <label htmlFor="email">E-mail</label>

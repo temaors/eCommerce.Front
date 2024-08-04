@@ -30,9 +30,6 @@ export const ProductListPage = () => {
                         <div className="column">
                              <Link to={`/products/view/${item.id}`} className="content container">
                                 <img src={item.reference} className="image" alt="Mountains" style={{width:'100%'}}/>
-                                {/*<div className="middle">*/}
-                                {/*    <div className="description-text">Подробнее</div>*/}
-                                {/*</div>*/}
                                 <h4>{item.name}</h4>
                                 <h3>{item.manufacturer}</h3>
                                 <h3>{item.price} BYN</h3>

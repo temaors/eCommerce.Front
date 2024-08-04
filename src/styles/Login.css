@@ -101,3 +101,11 @@ label {
     background-color: #85EB6A;
     cursor: pointer;
 }
+
+.failed-label{
+    color: red;
+}
+
+.non-failed-label{
+    display: none;
+}
